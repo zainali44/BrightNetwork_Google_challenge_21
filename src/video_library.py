@@ -4,7 +4,6 @@ from .video import Video
 from pathlib import Path
 import csv
 
-
 # Helper Wrapper around CSV reader to strip whitespace from around
 # each item.
 def _csv_reader_with_strip(reader):
@@ -30,8 +29,8 @@ class VideoLibrary:
 
     def get_all_videos(self):
         """Returns all available video information from the video library."""
-        return list(self._videos.values())
-
+        return list(self._videos.values()) #[x for x in list(self._videos.values()) if x.flagged == None]
+        
     def get_video(self, video_id):
         """Returns the video object (title, url, tags) from the video library.
 
